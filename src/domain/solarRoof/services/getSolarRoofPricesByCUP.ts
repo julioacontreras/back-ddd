@@ -13,17 +13,6 @@ const formatter = new Intl.NumberFormat('es-ES', {
     currency: 'EUR'
 });
 
-/**
- * getSolarRoofPricesByCUP
- * 
- * @brief
- *  This function get solar roof proces avaliables to this CUP
- * 
- * @param client 
- * @param clientPoint 
- * @param neighborPoints 
- * @returns 
- */
 export function getSolarRoofPricesByCUP (client: Client, clientPoint: Point, neighborPoints: Point[]): Result {
     const haveDiscount = isEnableDiscount(clientPoint, neighborPoints);
     return {
