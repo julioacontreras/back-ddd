@@ -27,7 +27,7 @@ module.exports = {
             '@modules': path.resolve(__dirname, 'src/modules'),
         }
     },
-    externals:[ nodeExternals() ],    
+    externals: [nodeExternals()],
     module: {
         rules: [
             {

@@ -1,6 +1,6 @@
 import { ServerHTTP, setServerHTTP, UseCaseSettings } from '@/adapters/serverHTTP';
 
-import startServer from './core';
+import startServer from './express';
 
 function useServerHTTP (): ServerHTTP {
     const useCases = new Map<string, UseCaseSettings>();
