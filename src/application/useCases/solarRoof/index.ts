@@ -1,7 +1,5 @@
 import { database } from '@/adapters/database';
-import { ActionResponse } from '@/adapters/broker';
-
-import { processSolarRoof } from '@/ports/solarRoof';
+import { HTTPResponse } from '@/adapters/serverHTTP';
 
 import { Client } from '@/domain/solarRoof/entities/client';
 import { Point } from '@/domain/solarRoof/entities/point';
@@ -9,15 +7,11 @@ import { Point } from '@/domain/solarRoof/entities/point';
 import ModelClient from '@/application/models/client';
 import ModelPoint from '@/application/models/point';
 
-type SettingsSolarRoof = {
-    params: {
-        cups: string
-    }
-}
+import { processSolarRoof } from './processSolarRoof';
+import { SettingsSolarRoof } from './types';
 
-export const actionSolarRoof = (settings: unknown): ActionResponse => {
+export const solarRoofCaseUse = (settings: unknown): HTTPResponse => {
     try {
-
         const s = settings as SettingsSolarRoof;
         const client = ModelClient.getClientByCUP(s.params.cups, database.repositories.clients as Client[]) as Client;
     

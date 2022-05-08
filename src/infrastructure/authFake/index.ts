@@ -1,15 +1,7 @@
-import { Auth, setAuth, User } from '@/adapters/auth';
+import { Auth, setAuth } from '@/adapters/auth';
 
-function login (email: string, password: string, users: User[]): boolean {
-    const user = users.find((user) => 
-        user.email === email && user.password === password
-    );
-    return (user !== undefined);
-}
-
-function logout (): boolean {
-    return true;
-}
+import { logout } from './core/logout';
+import { login } from './core/login';
 
 const auth: Auth = {
     login,

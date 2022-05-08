@@ -2,8 +2,8 @@ import { Client } from '@/domain/solarRoof/entities/client';
 import { Point } from '@/domain/solarRoof/entities/point';
 import { Result } from '@/domain/solarRoof/entities/result';
 
-import { isEnableToGetSolarRoof } from '@/domain/solarRoof/rules/isEnableToGetSolarRoof';
-import { getSolarRoofPricesByCUP } from '@/domain/solarRoof/rules/getSolarRoofPricesByCUP';
+import { isEnableToGetSolarRoof } from '@/domain/solarRoof/services/isEnableToGetSolarRoof';
+import { getSolarRoofPricesByCUP } from '@/domain/solarRoof/services/getSolarRoofPricesByCUP';
 
 export function processSolarRoof (client: Client, clientPoint: Point, neighborPoints: Point[]): Result {
     if (!isEnableToGetSolarRoof(client, clientPoint)) {

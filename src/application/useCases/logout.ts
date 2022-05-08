@@ -1,7 +1,7 @@
 import { auth } from '@/adapters/auth';
-import { ActionResponse } from '@/adapters/broker';
+import { HTTPResponse } from '@/adapters/serverHTTP';
 
-export const actionLogout = (): ActionResponse => {
+export const logoutCaseUse = (): HTTPResponse => {
     try {
 
         const isSuccessful = auth.logout();

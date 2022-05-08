@@ -1,12 +1,21 @@
-import { broker } from '@/adapters/broker';
+import { serverHTTP } from '@/adapters/serverHTTP';
 
-import { actionSolarRoof } from './actions/actionSolarRoof';
-import { actionLogin } from './actions/actionLogin';
-import { actionLogout } from './actions/actionLogout';
+import { solarRoofCaseUse } from './useCases/solarRoof';
+import { loginCaseUse } from './useCases/login';
+import { logoutCaseUse } from './useCases/logout';
 
 export function startApp () {
-    broker.action('getSolarRoofPricesByCUP', actionSolarRoof);
-    broker.action('login', actionLogin);
-    broker.action('logout', actionLogout);
-    broker.run();
+    serverHTTP.add('getSolarRoofPricesByCUP', {
+        useCase: solarRoofCaseUse,
+        route: '/api/solarRoof/prices/searchByCUP'        
+    });
+    serverHTTP.add('login', {
+        useCase: loginCaseUse,
+        route: '/api/auth/login'
+    });
+    serverHTTP.add('logout', {
+        useCase: logoutCaseUse,
+        route: '/api/auth/logout'
+    });
+    serverHTTP.run();
 }

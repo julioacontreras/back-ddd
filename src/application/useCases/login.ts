@@ -1,5 +1,5 @@
 import { auth, User } from '@/adapters/auth';
-import { ActionResponse } from '@/adapters/broker';
+import { HTTPResponse } from '@/adapters/serverHTTP';
 import { database } from '@/adapters/database';
 
 type SettingsLogin = {
@@ -9,7 +9,7 @@ type SettingsLogin = {
     }
 }
 
-export const actionLogin = (settings: unknown): ActionResponse => {
+export const loginCaseUse = (settings: unknown): HTTPResponse => {
     try {
 
         const s = settings as SettingsLogin;
