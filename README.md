@@ -27,12 +27,12 @@ Backend - API v1.0
     npm run doc
 
     # view documentation
-    npm run view:doc
+    npm run doc:view
 ```
 
 ## Tests
 
 ```console
     # run tests
-    npm run test
+    npm run test:unit
 ```
